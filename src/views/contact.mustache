@@ -1,0 +1,17 @@
+<html>
+<head>
+  <title>Página de contato</title>
+</head>
+<body>
+  <h1> Você acessou a lista de contatos </h1>
+  <br>
+  
+  {{#x}}
+    <p> Sem amigos {{object.lastName}}! </p>
+  {{/x}}
+
+  {{^x}}
+    <p> Com amigos {{object.firstName}}! </p>
+  {{/x}}
+</body>
+</html>

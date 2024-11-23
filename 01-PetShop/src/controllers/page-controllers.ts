@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import { Pet } from "../models/pets";
+import { getPet } from "../models/pets-models";
 
 export const home = (req: Request, res: Response) => {
-  const list = Pet.getAll();
+  const list = getPet.getAll();
   res.render("pages/home", {
     banner: {
       title: "Todos os animais",

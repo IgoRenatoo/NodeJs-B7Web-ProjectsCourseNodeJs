@@ -1,5 +1,5 @@
 import { Router } from "express";
-import * as PageControllers from "../controllers/pageControllers";
+import * as PageControllers from "../controllers/page-controllers";
 
 export const router = Router();
 

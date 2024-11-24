@@ -20,13 +20,7 @@ server.use(router);
 server.use(notFoundRequest);
 server.use(errorHandler);
 
-server.get("/ping", (req: Request, res: Response) => {
-  res.json({ pong: true });
-});
-
 // Inicialização do servidor
 server.listen(process.env.PORT, () => {
-  console.log(
-    `Servidor está rodando no link => http:localhost:${process.env.PORT}`
-  );
+  console.log(`Servidor está rodando no link => http:localhost:${process.env.PORT}`);
 });

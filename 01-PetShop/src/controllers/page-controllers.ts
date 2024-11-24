@@ -2,21 +2,23 @@ import { Request, Response } from "express";
 import { getPet } from "../models/pets-models";
 
 export const home = (req: Request, res: Response) => {
-  const list = getPet.getAll();
+  const listAll = getPet.getAll();
   res.render("pages/home", {
     banner: {
       title: "Todos os animais",
       url: "/images/allanimals.jpg",
     },
-    list,
+    listAll
   });
 };
 export const dog = (req: Request, res: Response) => {
+  const listDog = getPet.getDog()
   res.render("pages/dog", {
     banner: {
       title: "Cachorro",
       url: "/images/banner_dog.jpg",
     },
+    listDog
   });
 };
 export const cat = (req: Request, res: Response) => {

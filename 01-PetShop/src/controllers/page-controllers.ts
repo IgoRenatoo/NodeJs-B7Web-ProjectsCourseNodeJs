@@ -41,5 +41,6 @@ export const fish = (req: Request, res: Response) => {
       title: "Peixes",
       url: "/images/banner_fish.jpg",
     },
+    listFish
   });
 };

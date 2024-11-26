@@ -120,6 +120,8 @@ Este projeto está licenciado sob a Licença MIT.
 
 ## 🏁 Conclusão
 
-O projeto PetShop proporcionou uma oportunidade para aplicar conceitos importantes de TypeScript, organização de diretórios e manipulação de templates dinâmicos. Ele é um exemplo funcional de como estruturar aplicações Node.js de maneira escalável.
+O projeto PetShop proporcionou uma oportunidade para aplicar conceitos importantes de TypeScript, organização de diretórios e manipulação de templates dinâmicos.
+
+Ele é um exemplo funcional de como estruturar aplicações Node.js de maneira escalável.
 
 💡 `💻 Código é como mágica... até você esquecer uma vírgula!`

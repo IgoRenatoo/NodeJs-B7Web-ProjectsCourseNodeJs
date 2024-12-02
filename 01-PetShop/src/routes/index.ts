@@ -1,2 +1,2 @@
-export * from "./main-routes";
-export * from "./error-routes";
+export * from './main-routes'
+export * from './error-routes'

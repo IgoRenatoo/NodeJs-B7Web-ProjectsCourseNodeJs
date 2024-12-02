@@ -1,11 +1,11 @@
-import z from "zod";
+import z from 'zod'
 
 // === SCHEMAS DE VALIDAÇÃO === //
 
 // Schema de validação para informações de um usuário
 const user = z.object({
-  name: z.string().min(2, "O nome deve ter pelo menos 2 caracteres."),
-  email: z.string().email("Insira um e-mail válido."), // Validação de email
+  name: z.string().min(2, 'O nome deve ter pelo menos 2 caracteres.'),
+  email: z.string().email('Insira um e-mail válido.'), // Validação de email
   age: z.number().min(18, 'Precisa ser >= que 18.').max(120, 'Precisa ser <= que 120.'), // Mínimo e máximo do valor verificado
   sex: z.enum(['Masculino', 'Feminino']), // Aceita apenas as opções configuradas
   height: z.number().gte(175, 'Precisa ser >= que 175.'), // LT, GT, LTE e GTE MenorQ, MaiorQ, E = EqualQ
@@ -29,7 +29,7 @@ const person = user.and(skill) // Equivalente a z.intersection(userSchema, skill
 type IPerson = z.infer<typeof person>
 
 // === DADOS PARA EXEMPLO === //
-let data: IPerson = {
+const data: IPerson = {
   name: 'test',
   email: 'test@mail.com.br',
   age: 30,
@@ -47,10 +47,10 @@ let data: IPerson = {
 // === VALIDAÇÃO === //
 // `parse` lança exceções se houver erro de validação (use com try/catch).
 // `safeParse` retorna um objeto indicando sucesso ou erro, sem lançar exceções.
-const results = person.safeParse(data);
+const results = person.safeParse(data)
 
 if (!results.success) {
-  console.error("Erros de validação:", results.error.errors);
+  console.error('Erros de validação:', results.error.errors)
 } else {
-  console.log("Dados válidos:", results);
+  console.log('Dados válidos:', results)
 }

@@ -1,0 +1,29 @@
+{
+  "name": "nodejs-b7web-projectscoursenodejs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "lint-staged": {
+    "*.{js,ts}": [
+      "eslint '**/*' --fix"
+    ]
+  },
+  "scripts": {
+    "l": "npx eslint .",
+    "lint": "npx eslint . --fix",
+    "prepare": "husky install"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@commitlint/cli": "^19.6.0",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@eslint/js": "^9.16.0",
+    "eslint": "^9.16.0",
+    "globals": "^15.13.0",
+    "husky": "^8.0.0",
+    "typescript-eslint": "^8.16.0"
+  }
+}

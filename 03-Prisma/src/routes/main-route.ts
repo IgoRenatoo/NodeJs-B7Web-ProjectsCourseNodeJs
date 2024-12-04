@@ -1,15 +1,14 @@
-import { Router, Request, Response } from 'express'
-import { createUser } from './../services/create-user-service'
+import { Router } from 'express'
+import { pingPong, addNewUser, userById } from '../controllers/main-controller'
 
 const router = Router()
 
 export function routers () {
-  router.get('/ping', (req: Request, res: Response): any => res.json({ pong: true }))
+  router.get('/ping', pingPong)
 
-  router.post('/user', async (req: Request, res: Response): Promise<any> => {
-    const newUser = await createUser({ name: '123', email: '1123test@mail.com' })
-    return newUser ? res.status(201).json({ newUser }) : res.status(500).json({ error: 'Dados já cadastrados!' })
-  })
+  router.post('/user', addNewUser)
+
+  router.post('/get-user', userById)
 
   return router
 }

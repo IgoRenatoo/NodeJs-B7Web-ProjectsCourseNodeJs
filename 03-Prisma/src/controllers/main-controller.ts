@@ -1,23 +1,30 @@
 import { Request, Response } from 'express'
-import { createUser, getUser } from '../services/index'
-import { promptCreateUser, promptGetUser } from '../views/index'
+import { addNewUser, getUserById, deleteNewUser } from '../services/index'
+import { promptAddUser, promptGetUser, promptDeleteUser } from '../views/index'
 
-export const pingPong = async (req: Request, res: Response): Promise<any> => res.status(200).json({ pong: true })
 
-export const addNewUser = async (req: Request, res: Response): Promise<any> => {
-  const { name, email } = await promptCreateUser()
-  const newUser = await createUser({ name, email })
+export const addUser = async (req: Request, res: Response): Promise<any> => {
+  const { name, email } = await promptAddUser()
+  const newUser = await addNewUser({ name, email })
   console.log('Usuário registrado: ', newUser)
   return newUser
     ? res.status(201).json({ newUser })
     : res.status(500).json({ error: 'Dados já cadastrados!' })
 }
 
-export const userById = async (req: Request, res: Response): Promise<any> => {
+export const getUser = async (req: Request, res: Response): Promise<any> => {
   const { id } = await promptGetUser()
-  const getUserById = await getUser(id)
-  console.log('Usuário selecionado: ', getUserById)
-  return getUserById
-    ? res.status(201).json({ getUserById })
+  const UserById = await getUserById(id)
+  console.log('Usuário selecionado: ', UserById)
+  return UserById
+    ? res.status(201).json({ UserById })
     : res.status(500).json({ error: 'Usuário não encontrado!' })
+}
+
+export const deleteUser = async (req: Request, res: Response): Promise<any> => {
+  const dataDelete = await promptDeleteUser()
+  const deleteById = await deleteNewUser(dataDelete)
+  return deleteById
+    ? res.status(201).json( deleteById )
+    : res.status(500).json({ error: 'Usuário não foi deletado!' })
 }

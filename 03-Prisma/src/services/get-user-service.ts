@@ -1,6 +1,6 @@
-import { db } from '../libs/prisma'
+import { db } from '../database/prisma'
 
-export const getUser = async (userId : number) => {
+export const getUserById = async (userId: number) => {
   try {
     const user = await db.user.findUnique({ where: { id: userId } })
 

@@ -1,14 +1,14 @@
 import { Router } from 'express'
-import { pingPong, addNewUser, userById } from '../controllers/main-controller'
+import { addUser, getUser, deleteUser } from '../controllers/main-controller'
 
 const router = Router()
 
 export function routers () {
-  router.get('/ping', pingPong)
+  router.post('/user', addUser)
 
-  router.post('/user', addNewUser)
+  router.get('/get-user', getUser)
 
-  router.post('/get-user', userById)
+  router.delete('/delete-user', deleteUser)
 
   return router
 }

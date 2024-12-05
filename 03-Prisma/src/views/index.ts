@@ -1,2 +1,3 @@
-export * from './prompt-create-user'
-export * from './prompt-get-user'
+export * from './add-user-prompt'
+export * from './get-user-prompt'
+export * from './delete-user-prompt'

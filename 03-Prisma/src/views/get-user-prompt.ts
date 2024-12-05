@@ -1,5 +1,5 @@
 import promptSync from 'prompt-sync'
-import { IId } from './../types/prompt.interface'
+import { IId } from '../types/prompt.interface'
 
 const prompt = promptSync()
 

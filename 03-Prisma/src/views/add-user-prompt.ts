@@ -1,13 +1,12 @@
 import promptSync from 'prompt-sync'
-import { IUser } from '../types/prompt.interface'
 
 const prompt = promptSync()
 
-export const promptAddUser = async (): Promise<IUser> => {
-  console.log('Você acessou a rota de dicionar um usuário!')
+export const promptAddUser = async (): Promise<object> => {
+  console.log('Você acessou a rota de adicionar um usuário!')
   const user = {
     name: prompt('Informe o nome do novo usuário: '),
-    email: prompt('Informe o email: ')
+    email: prompt('Informe o email do novo usuário: ')
   }
   return user
 }

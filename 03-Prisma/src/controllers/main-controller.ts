@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
-import { addNewUser, getUserById, deleteNewUser } from '../services/index'
-import { promptAddUser, promptGetUser, promptDeleteUser } from '../views/index'
+import { addNewUser, getUserById, deleteNewUser, changeUserByid } from '../services/index'
+import { promptAddUser, promptGetUser, promptDeleteUser, promptChangeUser } from '../views/index'
 
 
 export const addUser = async (req: Request, res: Response): Promise<any> => {
@@ -30,4 +30,9 @@ export const deleteUser = async (req: Request, res: Response): Promise<any> => {
 }
 
 export const changeUser = async (req: Request, res: Response): Promise<any> => {
+  const userID = await promptChangeUser()
+  const changeUser = await changeUserByid(userID)
+  return changeUser
+    ? res.status(201).json({ changeUser: `Role do Usuário ID: ${userID} alterado com sucesso'` })
+    : res.status(500).json({ error: 'Nenhum Usuário foi alterado!' })
 }

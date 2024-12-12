@@ -1,13 +1,13 @@
 import { dbPrisma } from './../database/prisma-database'
 
-export const addUser = async ( name: string, email: string, age: number) => {
+export const addUser = async ( name: string, email: string, age: number, password: string) => {
   const existingUser = await dbPrisma.userAuth.findFirst({ where: { OR: [{ name }, { email }] } })
   if (existingUser) {
     return { sucess: false, message: 'User with the same name or email already exists.' }
   }
   try {
     const newUser = await dbPrisma.userAuth.create({
-      data: { name: name, email: email, age: age }
+      data: { name: name, email: email, age: age, password: password }
     })
 
     return { success: true, newUser }
@@ -17,11 +17,11 @@ export const addUser = async ( name: string, email: string, age: number) => {
   }
 }
 
-export const isValidUser = async ( name: string, email: string) => {
+export const isValidUser = async ( email: string, password: string) => {
   const dataUser = await dbPrisma.userAuth.findFirst({
     where: {
-      name: name,
-      email: email
+      email: email,
+      password: password
     }
   })
 

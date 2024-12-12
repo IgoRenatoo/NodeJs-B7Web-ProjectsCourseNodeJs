@@ -8,8 +8,9 @@ datasource db {
 }
 
 model userAuth {
-  id    Int    @id @default(autoincrement())
-  name  String @unique
-  email String @unique
-  age   Int    @default(18)
+  id       Int    @id @default(autoincrement())
+  name     String @unique
+  email    String @unique
+  age      Int    @default(18)
+  password String
 }

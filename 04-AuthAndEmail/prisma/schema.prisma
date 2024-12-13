@@ -13,4 +13,5 @@ model userAuth {
   email    String @unique
   age      Int    @default(18)
   password String
+  token    String?
 }

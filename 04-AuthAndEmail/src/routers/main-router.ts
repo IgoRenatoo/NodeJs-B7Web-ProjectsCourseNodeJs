@@ -6,7 +6,7 @@ const router = Router()
 
 export function routers () {
   router.post('/user', createUser)
-  router.get('/list', authBasic , listAllUsers)
+  router.get('/listBasic', authBasic.private, listAllUsers)
 
   return router
 }

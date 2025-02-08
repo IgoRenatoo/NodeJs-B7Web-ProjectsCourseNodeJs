@@ -1,10 +1,10 @@
 {
   "name": "05-tdd",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/app.ts",
   "type": "module",
   "scripts": {
-    "dev": "tsx index.ts",
+    "dev": "tsx src/app.ts --watch",
     "test": "jest"
   },
   "dependencies": {
@@ -13,10 +13,12 @@
     "typescript": "^5.7.3"
   },
   "devDependencies": {
+    "@prisma/client": "^6.3.1",
     "@types/express": "^5.0.0",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.13.1",
     "jest": "^29.7.0",
+    "prisma": "^6.3.1",
     "ts-jest": "^29.2.5",
     "tsx": "^4.19.2"
   }
